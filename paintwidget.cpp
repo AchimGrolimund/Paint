@@ -128,6 +128,10 @@ void paintWidget::paintEvent(QPaintEvent *event) {
 void paintWidget::slotOpenSettingsWindow() {
 	qDebug() << "SlotopenSettingWindow ausgelöst";
 	paintSettings *ps = new paintSettings(h);
+	QFile file(":/StyleSheet/style.qss");
+	file.open(QFile::ReadOnly);
+	QString styleSheet = QLatin1String(file.readAll());
+	ps->setStyleSheet(styleSheet);
 	ps->show();
 }
 void paintWidget::slotSliderChanchedValue(int v) {

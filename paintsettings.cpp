@@ -16,17 +16,20 @@ paintSettings::paintSettings(EventHandler *h,
 	sliderAnzahlLinien->setMinimum(1);
 	sliderAnzahlLinien->setSliderPosition(20);
 	sliderAnzahlLinien->setMaximum(999);
+	sliderAnzahlLinien->setToolTip(tr("Anzahl Formen, Kreise oder Punkte"));
 	sliderDicke = new QSlider(Qt::Orientation::Horizontal);
 	sliderDicke->setTracking(true);
 	sliderDicke->setMinimum(1);
 	sliderDicke->setMaximum(50);
 	sliderDicke->setSliderPosition(10);
+	sliderDicke->setToolTip(tr("Dicker der Linien"));
 	sliderHint1 = new MyHintLabel(this, sliderAnzahlLinien);
 	sliderHint2 = new MyHintLabel(this, sliderDicke);
 	sliderRotation = new QSlider(Qt::Orientation::Horizontal);
 	sliderRotation->setRange(1, 179);
 	sliderRotationAbstand = new QSlider(Qt::Orientation::Horizontal);
 	sliderRotationAbstand->setRange(1, 50);
+	sliderRotation->setToolTip(tr("Rotation der Form"));
 	//--------------------------------------------------
 	QLabel *StatusLabel = new
 	QLabel("© <a href=\"https://github.com/EvilAcid\"style=\"color: red;\">Achim Grolimund</a> thanks to <a href=\"https://github.com/Misch2k\"style=\"color: red;\">Michel Kugler</a>");
