@@ -16,20 +16,23 @@ paintSettings::paintSettings(EventHandler *h,
 	sliderAnzahlLinien->setMinimum(1);
 	sliderAnzahlLinien->setSliderPosition(20);
 	sliderAnzahlLinien->setMaximum(999);
-	sliderAnzahlLinien->setToolTip(tr("Anzahl Formen, Kreise oder Punkte"));
+	sliderAnzahlLinien->setToolTip(
+		tr("Anzahl Formen, Kreise oder Punkte <img src='qrc:/tooltip/line_count1.png' width='80' height='80'> <img src='qrc:/tooltip/line_count2.png' width='80' height='80'>"));
 	sliderDicke = new QSlider(Qt::Orientation::Horizontal);
 	sliderDicke->setTracking(true);
 	sliderDicke->setMinimum(1);
 	sliderDicke->setMaximum(50);
 	sliderDicke->setSliderPosition(10);
-	sliderDicke->setToolTip(tr("Dicker der Linien"));
+	sliderDicke->setToolTip(
+		tr("Dicke der Linien <br><img src='qrc:/tooltip/line_count1.png' width='80' height='80'> <img src='qrc:/tooltip/line_dicke.png' width='80' height='80'>"));
 	sliderHint1 = new MyHintLabel(this, sliderAnzahlLinien);
 	sliderHint2 = new MyHintLabel(this, sliderDicke);
 	sliderRotation = new QSlider(Qt::Orientation::Horizontal);
 	sliderRotation->setRange(1, 179);
 	sliderRotationAbstand = new QSlider(Qt::Orientation::Horizontal);
 	sliderRotationAbstand->setRange(1, 50);
-	sliderRotation->setToolTip(tr("Rotation der Form"));
+	sliderRotation->setToolTip(
+		tr("Rotation der Form <br><img src='qrc:/tooltip/spirale.png' width='80' height='80'><img src='qrc:/tooltip/spirale_rotation.png' width='80' height='80'>"));
 	//--------------------------------------------------
 	QLabel *StatusLabel = new
 	QLabel("© <a href=\"https://github.com/EvilAcid\"style=\"color: red;\">Achim Grolimund</a> thanks to <a href=\"https://github.com/Misch2k\"style=\"color: red;\">Michel Kugler</a>");

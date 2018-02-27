@@ -11,4 +11,15 @@
         <file>down_arrow.png</file>
         <file>handle.png</file>
     </qresource>
+    <qresource prefix="/tooltip">
+        <file>spirale_points.png</file>
+        <file>spirale_abstand.png</file>
+        <file>spirale_rotation.png</file>
+        <file>spirale.png</file>
+        <file>quader.png</file>
+        <file>elipse.png</file>
+        <file>line_dicke.png</file>
+        <file>line_count2.png</file>
+        <file>line_count1.png</file>
+    </qresource>
 </RCC>
