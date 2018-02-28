@@ -31,8 +31,10 @@ paintSettings::paintSettings(EventHandler *h,
 	sliderRotation->setRange(1, 179);
 	sliderRotationAbstand = new QSlider(Qt::Orientation::Horizontal);
 	sliderRotationAbstand->setRange(1, 50);
+	sliderRotationAbstand->setToolTip(
+		tr("Abstand von der<br>Rotation zur Mitte<br><b>Nur bei Spirale</b><br><img src='qrc:/tooltip/spirale_abstand.png' width='80' height='80'>"));
 	sliderRotation->setToolTip(
-		tr("Rotation der Form <br><img src='qrc:/tooltip/spirale.png' width='80' height='80'><img src='qrc:/tooltip/spirale_rotation.png' width='80' height='80'>"));
+		tr("Rotation der Form <br><b>Nur bei Spirale</b><br><img src='qrc:/tooltip/spirale.png' width='80' height='80'><img src='qrc:/tooltip/spirale_rotation.png' width='80' height='80'>"));
 	//--------------------------------------------------
 	QLabel *StatusLabel = new
 	QLabel("© <a href=\"https://github.com/EvilAcid\"style=\"color: red;\">Achim Grolimund</a> thanks to <a href=\"https://github.com/Misch2k\"style=\"color: red;\">Michel Kugler</a>");
@@ -42,10 +44,20 @@ paintSettings::paintSettings(EventHandler *h,
 	//--------------------------------------------------
 	radioButtonDrawLines = new QRadioButton();
 	radioButtonDrawLines->setChecked(true);
+	radioButtonDrawLines->setToolTip(
+		tr("Zeichne Linien <br><img src='qrc:/tooltip/line_count1.png' width='80' height='80'>"));
 	radioButtonDrawElipses = new QRadioButton();
+	radioButtonDrawElipses->setToolTip(
+		tr("Zeichne Elipsen <br><img src='qrc:/tooltip/elipse.png' width='80' height='80'>"));
 	radioButtonDrawQuader = new QRadioButton();
+	radioButtonDrawQuader->setToolTip(
+		tr("Zeichne Quader <br><img src='qrc:/tooltip/quader.png' width='80' height='80'>"));
 	radioButtonDrawSpirale = new QRadioButton();
+	radioButtonDrawSpirale->setToolTip(
+		tr("Zeichne Spirale <br><img src='qrc:/tooltip/spirale.png' width='80' height='80'>"));
 	checkBoxDrawPoints = new QCheckBox();
+	checkBoxDrawPoints->setToolTip(
+		tr("Zeichne Punkte<br><b>Nur bei Spirale</b><br><img src='qrc:/tooltip/spirale_points.png' width='80' height='80'>"));
 	//--------------------------------------------------
 	QFrame *line = new QFrame(this);
 	line->setFrameShape(QFrame::HLine);
