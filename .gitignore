@@ -44,7 +44,7 @@
 
 # QT Specific
 *build*
-.pro
+#.pro
 *.pro.user
 *release
 Makefile*
