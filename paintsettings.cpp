@@ -14,8 +14,8 @@ paintSettings::paintSettings(EventHandler *h,
 	sliderAnzahlLinien = new QSlider(Qt::Orientation::Horizontal);
 	sliderAnzahlLinien->setTracking(true);
 	sliderAnzahlLinien->setMinimum(1);
-	sliderAnzahlLinien->setSliderPosition(20);
-	sliderAnzahlLinien->setMaximum(999);
+	sliderAnzahlLinien->setSliderPosition(10);
+	sliderAnzahlLinien->setMaximum(400);
 	sliderAnzahlLinien->setToolTip(
 		tr("Anzahl Formen, Kreise oder Punkte <img src='qrc:/tooltip/line_count1.png' width='80' height='80'> <img src='qrc:/tooltip/line_count2.png' width='80' height='80'>"));
 	sliderDicke = new QSlider(Qt::Orientation::Horizontal);
