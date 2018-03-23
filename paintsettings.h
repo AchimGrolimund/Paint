@@ -28,6 +28,7 @@ class paintSettings : public QWidget {
 	QRadioButton *radioButtonDrawElipses;
 	QRadioButton *radioButtonDrawQuader;
 	QRadioButton *radioButtonDrawSpirale;
+	QRadioButton *radioButtonDrawPoints;
 	QCheckBox *checkBoxDrawPoints;
 
 

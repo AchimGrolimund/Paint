@@ -14,8 +14,8 @@ paintWidget::paintWidget(QWidget *parent)
 	setMinimumHeight(500);
 	setMinimumWidth(500);
 	//--------------------------------------------------
-	QObject::connect(this, SIGNAL(signalOpenSettingsWindow()), h,
-					 SLOT(slotOpenSettingsWindow()));
+	QObject::connect(this, &paintWidget::signalOpenSettingsWindow, h,
+					 &EventHandler::slotOpenSettingsWindow);
 	//--------------------------------------------------
 	QObject::connect(h, SIGNAL(signalOpenSettings()),
 					 this, SLOT(slotOpenSettingsWindow()));
@@ -47,6 +47,9 @@ paintWidget::paintWidget(QWidget *parent)
 	//--------------------------------------------------
 	QObject::connect(h, SIGNAL(signalPointsCheckBoxToogled(bool)),
 					 this, SLOT(slotPointsCheckBoxChanched(bool)));
+	//--------------------------------------------------
+	QObject::connect(h, SIGNAL(signalPointsRadioButtonToogled(bool)),
+					 this, SLOT(slotPointsRadioButtonChanched(bool)));
 	//--------------------------------------------------
 	emit signalOpenSettingsWindow();
 }
@@ -117,10 +120,31 @@ void paintWidget::paintEvent(QPaintEvent *event) {
 			}
 			painter.resetTransform();
 		}
+	} else if (isPoints) {
+		painter.drawText(QPoint(width() / 2, height() / 2), "isPoints");
+		//############
+		PointA[0] = width() * 0.05;
+		PointA[1] = height() * 0.05;
+		PointB[0] = width() * 0.95;
+		PointB[1] = height() * 0.5;
+		PointC[0] = width() * 0.5;
+		PointC[1] = height() * 0.95;
+		//############
+		//mitte a b
+		int ax = (PointA[0] + PointB[0]) / 2;
+		int ay = (PointA[1] + PointB[1]) / 2;
+		painter.drawPoint(ax, ay);
+		//############
+		painter.drawPoint(PointA[0], PointA[1]);
+		painter.drawPoint(PointB[0], PointB[1]);
+		painter.drawPoint(PointC[0], PointC[1]);
+		//----------
 	} else {
 		painter.drawText(QPoint(width() / 2, height() / 2), "FAIL");
 	}
 }
+
+
 
 //--------------------------------------------------
 //Slots
@@ -176,5 +200,10 @@ void paintWidget::slotSliderRotationAbstandChanchedValue(int v) {
 void paintWidget::slotPointsCheckBoxChanched(bool v) {
 	qDebug() << "Paintwidget Points --> " << v;
 	isSpirale_Points = v;
+	paintWidget::repaint();
+}
+void paintWidget::slotPointsRadioButtonChanched(bool v) {
+	qDebug() << "Paintwidget Points --> " << v;
+	isPoints = v;
 	paintWidget::repaint();
 }

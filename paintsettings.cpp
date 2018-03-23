@@ -58,6 +58,7 @@ paintSettings::paintSettings(EventHandler *h,
 	checkBoxDrawPoints = new QCheckBox();
 	checkBoxDrawPoints->setToolTip(
 		tr("Zeichne Punkte<br><b>Nur bei Spirale</b><br><img src='qrc:/tooltip/spirale_points.png' width='80' height='80'>"));
+	radioButtonDrawPoints = new QRadioButton();
 	//--------------------------------------------------
 	QFrame *line = new QFrame(this);
 	line->setFrameShape(QFrame::HLine);
@@ -81,6 +82,7 @@ paintSettings::paintSettings(EventHandler *h,
 	musterFormLayout->addRow(tr("<ul><li> Abstand</li></ul>"),
 							 sliderRotationAbstand);
 	musterFormLayout->addRow(tr("<ul><li> Punkte</li></ul>"), checkBoxDrawPoints);
+	musterFormLayout->addRow(tr("Draw Points"), radioButtonDrawPoints);
 	musterGroupBox->setLayout(musterFormLayout);
 	//--------------------------------------------------
 	QGridLayout *layout = new QGridLayout();
@@ -102,32 +104,37 @@ paintSettings::paintSettings(EventHandler *h,
 	//--------------------------------------------------
 	//--------------------------------------------------
 	//Slider Valuechanched sende Daten an EventHandler
-	QObject::connect(this->sliderAnzahlLinien, SIGNAL(valueChanged(int)),
-					 h, SLOT(slotSliderChanchedValue(int)));
+	QObject::connect(this->sliderAnzahlLinien, &QSlider::valueChanged,
+					 h, &EventHandler::slotSliderChanchedValue);
 	//--------------------------------------------------
-	QObject::connect(this->sliderDicke, SIGNAL(valueChanged(int)),
-					 h, SLOT(slotSliderDickeChanchedValue(int)));
+	QObject::connect(this->sliderDicke, &QSlider::valueChanged,
+					 h, &EventHandler::slotSliderDickeChanchedValue);
 	//--------------------------------------------------
-	QObject::connect( this->radioButtonDrawLines, SIGNAL(toggled(bool)),
-					  h, SLOT(slotToggleLinesRadioButton(bool)));
+	QObject::connect( this->radioButtonDrawLines, &QRadioButton::toggled,
+					  h, &EventHandler::slotToggleLinesRadioButton);
 	//--------------------------------------------------
-	QObject::connect( this->radioButtonDrawElipses, SIGNAL(toggled(bool)),
-					  h, SLOT(slotToggleElipsRadioButton(bool)));
+	QObject::connect( this->radioButtonDrawElipses, &QRadioButton::toggled,
+					  h, &EventHandler::slotToggleElipsRadioButton);
 	//--------------------------------------------------
-	QObject::connect( this->radioButtonDrawQuader, SIGNAL(toggled(bool)),
-					  h, SLOT(slotToggleQuaderRadioButton(bool)));
+	QObject::connect( this->radioButtonDrawQuader, &QRadioButton::toggled,
+					  h, &EventHandler::slotToggleQuaderRadioButton);
 	//--------------------------------------------------
-	QObject::connect( this->radioButtonDrawSpirale, SIGNAL(toggled(bool)),
-					  h, SLOT(slotToggleTestRadioButton(bool)));
+	QObject::connect( this->radioButtonDrawSpirale, &QRadioButton::toggled,
+					  h, &EventHandler::slotToggleTestRadioButton);
 	//--------------------------------------------------
-	QObject::connect(this->sliderRotation, SIGNAL(valueChanged(int)),
-					 h, SLOT(slotSliderRotationChanchedValue(int)));
+	QObject::connect(this->sliderRotation, &QSlider::valueChanged,
+					 h, &EventHandler::slotSliderRotationChanchedValue);
 	//--------------------------------------------------
-	QObject::connect(this->sliderRotationAbstand, SIGNAL(valueChanged(int)),
-					 h, SLOT(slotSliderRotationAbstandChanchedValue(int)));
+	QObject::connect(this->sliderRotationAbstand, &QSlider::valueChanged,
+					 h, &EventHandler::slotSliderRotationAbstandChanchedValue);
 	//--------------------------------------------------
-	QObject::connect( this->checkBoxDrawPoints, SIGNAL(toggled(bool)),
-					  h, SLOT(slotPointsCheckBoxChanched(bool)));
+	QObject::connect( this->checkBoxDrawPoints, &QCheckBox::toggled,
+					  h, &EventHandler::slotPointsCheckBoxChanched);
+	//--------------------------------------------------
+	//"Von der Schule"
+	//--------------------------------------------------
+	QObject::connect( this->radioButtonDrawPoints, &QRadioButton::toggled,
+					  h, &EventHandler::slotTogglePointsRadioButton);
 	//--------------------------------------------------
 	sliderHint2->raise();
 }

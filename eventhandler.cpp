@@ -51,3 +51,8 @@ void EventHandler::slotPointsCheckBoxChanched(bool v) {
 	emit signalPointsCheckBoxToogled(v);
 }
 
+void EventHandler::slotTogglePointsRadioButton(bool v) {
+	qDebug() << "Draw Points Radiobutton tooglet ";
+	emit signalPointsRadioButtonToogled(v);
+}
+

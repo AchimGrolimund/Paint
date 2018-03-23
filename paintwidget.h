@@ -13,7 +13,6 @@ class paintWidget : public QMainWindow {
 	paintWidget(QWidget *parent = 0);
 	~paintWidget();
 
-
   private:
 	void paintEvent(QPaintEvent *event);
 	int distValue = 20;
@@ -25,8 +24,14 @@ class paintWidget : public QMainWindow {
 	bool isQuader = 0;
 	bool isSpirale = 0;
 	bool isSpirale_Points = 0;
+	//-----
+	bool isPoints = 0;
 	EventHandler *h;
 	//QStatusBar *statusbar;
+	//-------
+	int PointA[2];
+	int PointB[2];
+	int PointC[2];
 
 
   public slots:
@@ -40,6 +45,8 @@ class paintWidget : public QMainWindow {
 	void slotSliderRotationChanchedValue(int );
 	void slotSliderRotationAbstandChanchedValue(int );
 	void slotPointsCheckBoxChanched(bool);
+	//-----
+	void slotPointsRadioButtonChanched(bool );
 
   signals:
 	void signalOpenSettingsWindow();

@@ -14,4 +14,5 @@ int main(int argc, char *argv[]) {
 	a.setStyleSheet(styleSheet);
 	w.show();
 	return a.exec();
+
 }
